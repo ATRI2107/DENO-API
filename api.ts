@@ -6,7 +6,7 @@ interface Course{
     certification: boolean
 } 
 
-let courses: Array<Course> =[
+let courses: Array<Course> =[ //In actual practice data won't be in an array but a database
     {
         name: "C++ Bootcamp",
         price: 2.4,
