@@ -29,4 +29,21 @@ let courses: Array<Course> =[ //In actual practice data won't be in an array but
     }
 ]
 
+
+
+//File: Controllers
+export const getCourses=({response} : {response:any}) =>{
+    response.body=courses;
+};
+
+export const addCourses= async (
+    {request, response}: {request: any; response: any}) =>{
+        const body =await request.body();
+        const course: Course=body.value;
+        courses.push(course);
+        response.body={CoursesAdded: "Success"};
+        response.status=
+    }
+
+//FILE: SERVER FILES
 const router=new Router;
