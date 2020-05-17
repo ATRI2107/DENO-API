@@ -42,8 +42,19 @@ export const addCourses= async (
         const course: Course=body.value;
         courses.push(course);
         response.body={CoursesAdded: "Success"};
-        response.status=
+        response.status= 200;
     }
 
 //FILE: SERVER FILES
-const router=new Router;
+const router=new Router();
+const app=new Application();
+const PORT=4300;
+
+router
+    .get("/learn",getCourses)
+    .post("/create",addCourses);
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+await app.listen({port: 4300});
